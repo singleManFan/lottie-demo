@@ -5,12 +5,18 @@ const msgInputEle = document.querySelector(".messageInput");
 const sendBtn = document.querySelector(".send");
 
 const stickers = {
+    pikachu: {
+        path: './pikachu.json'
+    },
     bomb: {
-        path: "./3145-bomb.json",
+        path: "./4493-bomb.json",
     },
-    pumpkin: {
-        path: "./43215-pumpkins-sticker-4.json",
+    kiss: {
+        path: './28106-kiss-emoji.json'
     },
+    happy: {
+        path: './41-emoji-tongue.json'
+    }
 };
 
 Object.keys(stickers).forEach(key => {
