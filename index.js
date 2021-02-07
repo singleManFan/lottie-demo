@@ -106,22 +106,21 @@ function playExplosion(anchor, Pnode, automatic) {
     // 轰炸区
     const avatar = Pnode.querySelector('.avatar')
     const bubble = Pnode.querySelector('p')
-    let x = 0;
-    let y = -16;
+    let left = false;
     // 调整轰炸区x轴
     if (avatar.src.includes('you')) {
-        x = 44;
-    } else {
-        x = -56;
+        left = true
     }
-
-
     const explosionAnimeEle = anchor.appendChild(document.createElement("div"));
     explosionAnimeEle.style.position = 'absolute'
     explosionAnimeEle.style.width = "230px";
     explosionAnimeEle.style.height = "115px";
-    explosionAnimeEle.style.right = x + 'px';
-    explosionAnimeEle.style.bottom = y + 'px';
+    if (left) {
+        explosionAnimeEle.style.left = '-40px';
+    } else {
+        explosionAnimeEle.style.right = '-40px';
+    }
+    explosionAnimeEle.style.bottom = '-18px';
 
     const explosionPlayer = lottie.loadAnimation({
         container: explosionAnimeEle,
