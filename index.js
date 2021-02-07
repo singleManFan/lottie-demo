@@ -91,9 +91,8 @@ function playSticker(key, msgEle, automatic
         path: stickers[key].path
     })
 
-
-
     if (key === 'bomb') {
+        // 爆炸特效
         instance.addEventListener('complete', function () {
             setTimeout(function () {
                 // 💥效果
@@ -102,9 +101,18 @@ function playSticker(key, msgEle, automatic
                 shakeMessages();
             }, 300)
         })
-
-
+    } else {
+        // 表情特效
+        instance.addEventListener('data_ready', function () {
+            playBulge(lottieEle.parentNode.parentNode,)
+        })
     }
+}
+
+// 表情的镜头拉近效果
+function playBulge(node) {
+    const svg = node.querySelector('span')
+    svg.classList.add("bulge");
 }
 
 // 爆炸效果
@@ -137,12 +145,12 @@ function playExplosion(anchor, Pnode, automatic) {
     });
 
     bubble.style.display = 'none'
-    avatar.style.display = 'none'
+    // avatar.style.display = 'none'
     explosionPlayer.setSpeed(.3)
     setTimeout(function () {
         // 恢复显示
         bubble.style.display = 'flex'
-        avatar.style.display = 'block'
+        // avatar.style.display = 'block'
     }, 600)
     explosionPlayer.addEventListener('complete', () => {
         explosionPlayer.destroy()
@@ -180,7 +188,7 @@ function shakeMessages() {
 
 // 自动聊天
 function automaticallyChat() {
-    const chats = ['呼叫小鸭子', '我来给你表演个十级特效', 'bomb']
+    const chats = ['呼叫小鸭子', '我来给你表演个新年节目', 'bomb']
     chats.forEach((chat, index) => {
         setTimeout(function () {
             const msgEle = panelEle.appendChild(document.createElement("div"));

@@ -58,7 +58,6 @@ main {
   font-size: 14px;
   margin: 8px 0;
   position: relative;
-  min-height: 56px;
 }
 
 .message img {
@@ -75,6 +74,8 @@ main {
   display: flex;
   align-items: center;
   background: linear-gradient(#2d2b2e, #2c2c2c);
+  transform-style: preserve-3d;
+  transform: perspective(800px);
 }
 
 .message.mine {
@@ -154,6 +155,32 @@ input {
   box-shadow: none;
   background: #2a2829;
   color: #fff;
+}
+
+.bulge {
+  animation: bulge 2s ease-in-out;
+}
+
+@keyframes bulge {
+  from {
+    transform: translate3d(0, 0, 160px);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 160px);
+  }
+  75% {
+    transform: translate3d(0, 0, 160px);
+  }
+  85% {
+    transform: translate3d(0, 0, 120px);
+  }
+  95% {
+    transform: translate3d(0, 0, 60px);
+  }
+  0% {
+    transform: translate3d(0, 0px, 0);
+  }
 }
 
 .shake {
